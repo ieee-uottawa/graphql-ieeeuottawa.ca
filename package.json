@@ -1,0 +1,16 @@
+{
+  "name": "ieeeuottawa-graphql",
+  "version": "1.0.0",
+  "description": "Serverless GraphQL backend for ieeeuottawa.ca",
+  "main": "handler.js",
+  "repository": "https://github.com/ieee-uottawa/ieeeuottawa-graphql",
+  "author": "ieee-uottawa",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server-express": "^2.4.2",
+    "aws-sdk": "^2.415.0",
+    "express": "^4.16.4",
+    "graphql": "^14.1.1",
+    "graphql-tools": "^4.0.4"
+  }
+}
