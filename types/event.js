@@ -2,7 +2,8 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 type Query {
-    latestEvents(minLimit: Int): [Event]
+    latestEvents(minLimit: Int! = 4): [Event]
+    events: [Event]
 }
 
 type Event {
