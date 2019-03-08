@@ -5,13 +5,11 @@ const { GCP_PROJECT_ID } = process.env;
 const datastore = new Datastore({ projectId: GCP_PROJECT_ID });
 const kind = 'Events';
 
-const createEvent = ({ event: eventInput, postTo }) => {
-    const key = datastore.key(kind);
-    const event = {
-        id: `${eventInput.date.toString()}-${eventInput.name.toLowerCase().replace(/ /g, '-').replace(/[^\w\s-]/g, '').replace(/-{2,}/g, '-')}`,
-        ...eventInput,
-    }
+const createEvent = ({ event, postTo }) => {
+    if (!event.id) event.id = `${event.date.toString()}-${event.name.toLowerCase().replace(/ /g, '-').replace(/[^\w\s-]/g, '').replace(/-{2,}/g, '-')}`;
     delete event.date;
+
+    const key = datastore.key(kind);
 
     return new Promise((resolve, reject) => {
         datastore.save({
