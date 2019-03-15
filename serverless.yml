@@ -1,0 +1,24 @@
+service: ieeeuottawa-graphql
+
+custom:
+  webpackIncludeModules: true
+  webpack:
+    packager: 'yarn'
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+functions:
+  nominationSubmission:
+    handler: handler.submitNomination
+    memorySize: 128
+    description: Submits IEEE uOttawa nomination
+    events:
+      - http:
+          path: nomination
+          method: post
+          cors: true
+
+plugins:
+  - serverless-offline
