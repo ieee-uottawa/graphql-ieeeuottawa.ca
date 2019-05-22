@@ -20,5 +20,15 @@ functions:
           method: post
           cors: true
 
+  volunteerSubmission:
+    handler: handler.submitVolunteer
+    memorySize: 128
+    description: Submits IEEE uOttawa volunteer
+    events:
+      - http:
+          path: volunteer
+          method: post
+          cors: true
+
 plugins:
   - serverless-offline
