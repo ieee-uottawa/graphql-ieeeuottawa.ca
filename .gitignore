@@ -2,3 +2,4 @@ node_modules
 micro-enigma-233713-872d847ddd50.json
 .env
 .serverless
+.DS_Store
